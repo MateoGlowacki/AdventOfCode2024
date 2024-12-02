@@ -29,12 +29,8 @@ for line0 in data0:
     
     result = test(linenow)
     
-    # print(linenow)
-    # print(result)
-    
     if result[0] == 1:
         countnow = 1
-        # print('ok1')
     
     else:
         ident = result[1]
@@ -43,26 +39,27 @@ for line0 in data0:
             linenow1 = linenow.copy()
             del linenow[0]
             del linenow1[1]
-            # print(linenow)
-            # print(linenow1)
             
             countnow = test(linenow)[0]
-            # print(countnow)
-            # print('ok3')
             
             if countnow == 0:
                 countnow = test(linenow1)[0]
-                # print(countnow)
-                # print('ok3b')
         
         else:
-            del linenow[ident+1]
-            # print(linenow)
+            linenow1 = linenow.copy()
+            linenow2 = linenow.copy()
+            del linenow[ident]
+            del linenow1[ident+1]
+            del linenow2[ident+2]
+            
             countnow = test(linenow)[0]
-    #         print(countnow)
-    #         print('ok4')
-        
-    # input('go')
+            
+            if countnow == 0:
+                countnow = test(linenow1)[0]
+                
+                if countnow == 0:
+                    countnow = test(linenow2)[0]
+
     total = total + countnow   
          
 print(total)
