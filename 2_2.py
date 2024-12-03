@@ -48,9 +48,9 @@ for line0 in data0:
         else:
             linenow1 = linenow.copy()
             linenow2 = linenow.copy()
-            del linenow[ident]
-            del linenow1[ident+1]
-            del linenow2[ident+2]
+            del linenow[ident-1]
+            del linenow1[ident]
+            del linenow2[ident+1]
             
             countnow = test(linenow)[0]
             
